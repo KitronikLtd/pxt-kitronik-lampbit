@@ -1,0 +1,256 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable id="8|U:m75039RS*U.6+c4M" type="">Light_level</variable>
+    <variable id="o-C1MFKUR0GM[,2`y`g_" type="">item</variable>
+    <variable id="1n3Q}l04R)Cud]~60tmS" type="">hysteresis</variable>
+    <variable id="A!dAa|RFNqRF;Wl!?79P" type="">deadband</variable>
+  </variables>
+  <block id="-bAW7:0Wlb?d^mpG?QxG" type="pxt-on-start" x="264" y="96">
+    <statement name="HANDLER">
+      <block id="5bIg5{{`bXUX$=F7g(:R" type="variables_set">
+        <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+        <value name="VALUE">
+          <shadow id="0Alr0jsC-Hg=umX/=|S{" type="math_number">
+            <field name="NUM">25</field>
+          </shadow>
+          <block id="mFXKL-)k=%8ksY+0hlS6" type="math_arithmetic">
+            <field name="OP">MULTIPLY</field>
+            <value name="A">
+              <shadow id="}I`?43fzD?JsfEQuX2fR" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block id="{;2uhu[OMv5E`,D@Zxa3" type="math_arithmetic">
+                <field name="OP">DIVIDE</field>
+                <value name="A">
+                  <shadow id=";7}rR#Il@m0|{v!7+pE)" type="math_number">
+                    <field name="NUM">1023</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow id="!wIT|^yHgNe6$WpHB@t9" type="math_number">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow id="KTA{nsL5t63kT7@,UKM%" type="math_number">
+                <field name="NUM">25</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block id="kMxfN?R39vKDGICn60!*" type="device_forever" x="265" y="220">
+    <statement name="HANDLER">
+      <block id="BIbW3zuUh%6C|OpatW{_" type="controls_if">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <shadow id="R`N3tuUc$*NX%9#o%+iv" type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block id=":#9v^GLezKH;BpWEv?]~" type="logic_compare">
+            <field name="OP">LT</field>
+            <value name="A">
+              <shadow id="WA6M(4TzUX}:St|If,J%" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block id="++}Nk=C(UHMOn;s9g7%~" type="device_get_analog_pin">
+                <field name="name">AnalogPin.P1</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow id="i$.AcdrtHF{I$x.%~[rr" type="math_number">
+                <field name="NUM">512</field>
+              </shadow>
+              <block id="P2U#!~Oa`w-wB_u{TMim" type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <shadow id="U9sje_GNPP2Hi}MYV`lV" type="math_number">
+                    <field name="NUM">512</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow id="c^OUQ?9{9_,RCcFdUP/4" type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block id="]YLEK@Xfdo{EJBoCS%*." type="variables_get">
+                    <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block id="`!~(!_hDU+O=h{7$B7{U" type="device_set_digital_pin">
+            <field name="name">DigitalPin.P0</field>
+            <value name="value">
+              <shadow id="BKs68MG!iz80,+Le]:%t" type="math_number_minmax">
+                <mutation min="0" max="1"></mutation>
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block id="tUn~_Td4p51iA6$y_B*0" type="logic_compare">
+            <field name="OP">GT</field>
+            <value name="A">
+              <shadow id="NTr1Wx9R3SDzIjVs4u?m" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block id="0=g#dPFJ}+YiC[(GZ]vv" type="device_get_analog_pin">
+                <field name="name">AnalogPin.P1</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow id="0umY.q{7WOuos.}nj^2Q" type="math_number">
+                <field name="NUM">512</field>
+              </shadow>
+              <block id="c-G{:YR:gZ}5Fu`#?9U," type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow id="@A2((qN%4xf~7Ea1fJE9" type="math_number">
+                    <field name="NUM">512</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow id="|u;qszxU8q~JS?=0VN_9" type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block id=",OwHNeg(E`_V9OLmi/9s" type="variables_get">
+                    <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block id="ddW+3ME6$liWKN=Fd8Ue" type="device_set_digital_pin">
+            <field name="name">DigitalPin.P0</field>
+            <value name="value">
+              <shadow id=")pa/]$oDW3+S-$u|+DvS" type="math_number_minmax">
+                <mutation min="0" max="1"></mutation>
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block id="358BW^iZ$^qp^NYKQ9M|" type="device_button_event" x="423" y="625">
+    <field name="NAME">Button.A</field>
+    <statement name="HANDLER">
+      <block id="q1~ow*r2,@N;HAgcyu[S" type="variables_change">
+        <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+        <value name="VALUE">
+          <shadow id="iAoHkSlOOu}RI]|MZ5`p" type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+        <next>
+          <block id="+fIMEYh`QNX^@OUHvuwr" type="controls_if">
+            <value name="IF0">
+              <shadow id="H`Hrp2A^Und{n=*l4qK^" type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+              <block id="^PL/[u./t3:mE_T]q(Y6" type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <shadow id="8+9Au1z;j/+)AzfND{6}" type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block id="{rxJ]PXk!Lx/,@I*tvy1" type="variables_get">
+                    <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow id="@u*^0qrt^B-US77)NjpK" type="math_number">
+                    <field name="NUM">45</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block id="-n]jAAw.~|q1lg9QXOgv" type="variables_set">
+                <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+                <value name="VALUE">
+                  <shadow id="j|Ml4/X01#s]s-e6+7pm" type="math_number">
+                    <field name="NUM">40</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block id="~ZvxqyeroK9O!b,d*EZ+" type="device_show_number">
+                <value name="number">
+                  <shadow id="W(wJ=Gz/:u7/h8J^`H=v" type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block id="o_q2f-8$@H)J7-eCQ?Yl" type="variables_get">
+                    <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block id="C1{+73-c,h_wR9e$+:Xf" type="device_button_event" x="54" y="650">
+    <field name="NAME">Button.B</field>
+    <statement name="HANDLER">
+      <block id="V$opncG+SzHZn31$VOi1" type="controls_if">
+        <value name="IF0">
+          <shadow id="H`Hrp2A^Und{n=*l4qK^" type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block id="_S]QCT3Rf@NnNT/Q4i2?" type="logic_compare">
+            <field name="OP">NEQ</field>
+            <value name="A">
+              <shadow id="8+9Au1z;j/+)AzfND{6}" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block id="ZH,Xr=i|v.B{BND-Hrv^" type="variables_get">
+                <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow id="$sgq_h8a8e73;uzAap1e" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block id="J^=xTLdilrw,RzumqpO;" type="variables_change">
+            <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+            <value name="VALUE">
+              <shadow id="H^WsM2wQ^]N4GE;8/{Jz" type="math_number">
+                <field name="NUM">-5</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block id="~WT;wYKMsbN1$-NrSt@7" type="device_show_number">
+            <value name="number">
+              <shadow id="W(wJ=Gz/:u7/h8J^`H=v" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block id="gUWzsg,ImC7u`UPemykB" type="variables_get">
+                <field id="A!dAa|RFNqRF;Wl!?79P" name="VAR" variabletype="">deadband</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
