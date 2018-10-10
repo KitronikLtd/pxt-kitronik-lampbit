@@ -1,8 +1,0 @@
-{
-  "Kitronik_LAMPbit": "Kitronik Lampbit Package",
-  "Kitronik_LAMPbit.DisplayLamp": "Lamp on/off states",
-  "Kitronik_LAMPbit.deadband": "Deadband Value",
-  "Kitronik_LAMPbit.deadbandInput": "Deadband of Lamp",
-  "Kitronik_LAMPbit.lampLightLED": "Turn the Lamp on or off",
-  "Kitronik_LAMPbit.lightLevel": "Read the ambient light level"
-}
