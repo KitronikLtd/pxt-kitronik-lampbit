@@ -27,5 +27,18 @@ LightVoltage = Kitronik_LAMPbit.lightLevel()
     
     }
 ```
+
+## License
+
+MIT
+
+## Supported targets
+
+* for PXT/microbit
+(The metadata above is needed for package search.)
+
+
+```package
+pxt-kitronik-stopbit=github:KitronikLtd/pxt-kitronik-lampbit
 ```
 
