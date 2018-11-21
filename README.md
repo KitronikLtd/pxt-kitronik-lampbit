@@ -39,6 +39,6 @@ MIT
 
 
 ```package
-pxt-kitronik-stopbit=github:KitronikLtd/pxt-kitronik-lampbit
+pxt-kitronik-lampbit=github:KitronikLtd/pxt-kitronik-lampbit
 ```
 
