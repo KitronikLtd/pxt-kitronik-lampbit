@@ -7,7 +7,7 @@
 ### Introduction @unplugged
 Learn how to use the Kitronik LAMP:bit and code for the light to turn on and off depending on light levels with a BBC micro:bit. 
 
-![Lampbit switched on](https://KitronikLtd.github.io/pxt-kitronik-lampbit/assets/lamp-bit-light-on.jpg)
+![Lampbit switched on](https://KitronikLtd.github.io/pxt-kitronik-lampbit/assets/lamp-bit-light-on.png)
 
 ## Assembly
 ### Step 1 @unplugged
@@ -119,12 +119,11 @@ Connect your BBC micro:bit and click ``|Download|`` and try out the code.  Once 
 ### Light responding to phototransistor @unplugged
 So the light is switching on and off with changing of light levels.  That is awesome! 
 Try this, if you hold your hand over the phototransistor in a certain distance away can you get the LED flash rapidly?  This is where the ADC reading is switching between 511 and 512 creating this effect.
-![Question](https://KitronikLtd.github.io/pxt-kitronik-stopbit/assets/question-mark.jpg)
+![Question](https://KitronikLtd.github.io/pxt-kitronik-stopbit/assets/question-mark.png)
 
 ### Introduction to dead band @unplugged
 So how can we stop this flashing/flickering of the LED when it turns on and off?  The best way around this is to have the LED turn on and turn off at different light levels.
 For example the lights will turn on at an ADC reading of 550 but will not turn off till an ADC reading of 475.  This band between 475 to 550 so whats known as a deadband where nothing happens. Sometimes also known as a dead zone or neutral zone.
-![Question](https://KitronikLtd.github.io/pxt-kitronik-stopbit/assets/question-mark.jpg)
   
 ### Step 11
 To implement the deadband we require an ``||logic:if else if||`` block will be used (from the ``||logic:Logic||`` category) to compare the reading with some preset temperature boundaries.
