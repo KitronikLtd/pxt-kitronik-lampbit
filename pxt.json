@@ -8,7 +8,8 @@
     },
     "files": [
         "README.md",
-        "lampbit.ts"
+        "lampbit.ts",
+        "SensorDeadband.md"
     ],
     "testFiles": [
         "tests.ts"
