@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-lampbit",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Blocks to simplify using Kitronik LAMP:bit board in PXT",
     "license": "MIT",
     "dependencies": {
