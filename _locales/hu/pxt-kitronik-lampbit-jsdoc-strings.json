@@ -1,0 +1,8 @@
+{
+  "Kitronik_LAMPbit": "Kitronik Lampbit Csomag",
+  "Kitronik_LAMPbit.DisplayLamp": "Lámpa ki/be állapota",
+  "Kitronik_LAMPbit.deadband": "Váltási sáv értéke",
+  "Kitronik_LAMPbit.deadbandInput": "A lámpa váltási sávjának szélessége",
+  "Kitronik_LAMPbit.lampLightLED": "A lámpa ki- vagy bekapcsolása",
+  "Kitronik_LAMPbit.lightLevel": "Környezeti megvilágítás értékének kiolvasása"
+}

@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-lampbit",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Blocks to simplify using Kitronik LAMP:bit board in PXT",
     "license": "MIT",
     "dependencies": {
@@ -9,7 +9,9 @@
     "files": [
         "README.md",
         "lampbit.ts",
-        "SensorDeadband.md"
+        "SensorDeadband.md",
+        "_locales/hu/pxt-kitronik-lampbit-jsdoc-strings.json",
+        "_locales/hu/pxt-kitronik-lampbit-strings.json"
     ],
     "testFiles": [
         "tests.ts"

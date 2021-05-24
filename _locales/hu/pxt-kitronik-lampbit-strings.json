@@ -1,0 +1,10 @@
+{
+  "Kitronik_LAMPbit.DisplayLamp.Off|block": "Sötét",
+  "Kitronik_LAMPbit.DisplayLamp.On|block": "Világít",
+  "Kitronik_LAMPbit.deadbandInput|block": "Lámpa váltási sáv legyen %deadbandPercent| százalék",
+  "Kitronik_LAMPbit.deadband|block": "Váltási sáv értéke",
+  "Kitronik_LAMPbit.lampLightLED|block": "Lámpa állapota legyen %illumination|",
+  "Kitronik_LAMPbit.lightLevel|block": "Megvilágítási szint kiolvasása",
+  "Kitronik_LAMPbit|block": "LAMP:bit",
+  "{id:category}Kitronik_LAMPbit": "Kitronik_LAMPbit"
+}
