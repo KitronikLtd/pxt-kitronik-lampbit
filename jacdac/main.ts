@@ -24,7 +24,12 @@ namespace servers {
     jacdac.startSelfServers(() => [
         jacdac.createSimpleSensorServer("",
             jacdac.SRV_LIGHT_LEVEL, "u0.16",
-            () => Kitronik_LAMPbit.lightLevel() / 1023),
+            () => {
+                let v = Kitronik_LAMPbit.lightLevel()
+                if (isNaN(v))
+                    v = 0
+                return v / 1023
+            }),
         new LightBulbServer()
     ])
 }
