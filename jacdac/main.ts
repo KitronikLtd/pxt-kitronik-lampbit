@@ -33,12 +33,12 @@ namespace modules {
     /**
      * The ambient light level measured by Lamp:bit
      */
-    //% fixedInstance block="kitronik Lamp:bit light level"
+    //% fixedInstance whenUsed block="kitronik Lamp:bit light level"
     export const kitronikLampBitLightLevel = new LightLevelClient("kitronik Lamp:bit light level?device=self")
 
     /**
      * The lamp controller
      */
-    //% fixedInstance block="kitronik lamp:bit lamp"
+    //% fixedInstance whenUsed block="kitronik lamp:bit lamp"
     export const kitronikLampBitLamp = new LightBulbClient("kitronik lamp:bit lamp?device=self")
 }
