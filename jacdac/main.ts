@@ -21,17 +21,20 @@ namespace servers {
         }
     }
 
-    jacdac.startSelfServers(() => [
-        jacdac.createSimpleSensorServer("",
-            jacdac.SRV_LIGHT_LEVEL, "u0.16",
-            () => {
-                let v = Kitronik_LAMPbit.lightLevel()
-                if (isNaN(v))
-                    v = 0
-                return v / 1023
-            }),
-        new LightBulbServer()
-    ])
+    function start() {
+        jacdac.startSelfServers(() => [
+            jacdac.createSimpleSensorServer("",
+                jacdac.SRV_LIGHT_LEVEL, "u0.16",
+                () => {
+                    let v = Kitronik_LAMPbit.lightLevel()
+                    if (isNaN(v))
+                        v = 0
+                    return v / 1023
+                }),
+            new LightBulbServer()
+        ])
+    }
+    start()
 }
 
 namespace modules {
