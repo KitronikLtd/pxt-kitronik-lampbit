@@ -1,12 +1,15 @@
 {
-    "name": "jacdac",
+    "name": "jacdac-kitronik-lampbit",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pxt-kitronik-lampbit": "github:pelikhan/pxt-kitronik-lampbit#V1.0.6",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.8.21",
+        "jacdac-light-level": "github:microsoft/pxt-jacdac/light-level#v0.8.21",
+        "jacdac-light-bulb": "github:microsoft/pxt-jacdac/light-bulb#v0.8.21"
     },
     "files": [
-        "main.blocks",
         "main.ts",
         "README.md"
     ],
@@ -20,5 +23,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
