@@ -7,13 +7,13 @@ namespace servers {
     class LightBulbServer extends jacdac.Server {
         brightness: number
         constructor() {
-            super("", jacdac.SRV_LIGHT_BULB)
+            super(jacdac.SRV_LIGHT_BULB)
             this.brightness = 0
         }
 
         handlePacket(pkt: jacdac.JDPacket) {
             this.handleRegBool(pkt, jacdac.LightBulbReg.Dimmable, false)
-            const r = this.handleRegFormat(pkt, jacdac.LightBulbReg.Brightness, "u0.16", [this.brightness])
+            const r = this.handleRegFormat(pkt, jacdac.LightBulbReg.Brightness, jacdac.LightBulbRegPack.Brightness, [this.brightness])
             this.brightness = Math.round(r[0])
 
             const display = this.brightness > 0 ? Kitronik_LAMPbit.DisplayLamp.On : Kitronik_LAMPbit.DisplayLamp.Off
@@ -23,8 +23,8 @@ namespace servers {
 
     function start() {
         jacdac.startSelfServers(() => [
-            jacdac.createSimpleSensorServer("",
-                jacdac.SRV_LIGHT_LEVEL, "u0.16",
+            jacdac.createSimpleSensorServer(
+                jacdac.SRV_LIGHT_LEVEL, jacdac.LightLevelRegPack.LightLevel,
                 () => {
                     let v = Kitronik_LAMPbit.lightLevel()
                     if (isNaN(v))
@@ -41,12 +41,12 @@ namespace modules {
     /**
      * The ambient light level measured by Lamp:bit
      */
-    //% fixedInstance whenUsed block="kitronik Lamp:bit light level"
-    export const kitronikLampBitLightLevel = new LightLevelClient("kitronik Lamp:bit light level?device=self")
+    //% fixedInstance whenUsed block="kitronik Lampbit light level"
+    export const kitronikLampBitLightLevel = new LightLevelClient("kitronik Lampbit light level?device=self")
 
     /**
      * The lamp controller
      */
-    //% fixedInstance whenUsed block="kitronik lamp:bit lamp"
-    export const kitronikLampBitLamp = new LightBulbClient("kitronik lamp:bit lamp?device=self")
+    //% fixedInstance whenUsed block="kitronik Lampbit lamp"
+    export const kitronikLampBitLamp = new LightBulbClient("kitronik Lampbit lamp?device=self")
 }
