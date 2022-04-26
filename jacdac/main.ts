@@ -36,17 +36,30 @@ namespace servers {
     }
 
     function start() {
-        jacdac.startSelfServers(() => [
-            jacdac.createSimpleSensorServer(
-                jacdac.SRV_LIGHT_LEVEL, jacdac.LightLevelRegPack.LightLevel,
-                () => {
-                    let v = Kitronik_LAMPbit.lightLevel()
-                    if (isNaN(v))
-                        v = 0
-                    return v / 1023
+        jacdac.productIdentifier = 0x3fee6f62
+        jacdac.startSelfServers(() => {
+            const servers = [
+                jacdac.createSimpleSensorServer(
+                    jacdac.SRV_LIGHT_LEVEL, jacdac.LightLevelRegPack.LightLevel,
+                    () => {
+                        const v = Kitronik_LAMPbit.lightLevel()
+                        if (isNaN(v)) return undefined
+                        return v / 1023
+                    }, {
+                    statusCode: jacdac.SystemStatusCodes.Initializing
                 }),
-            new LightBulbServer()
-        ])
+                new LightBulbServer()
+            ]
+
+            control.inBackground(() => {
+                while(isNaN(Kitronik_LAMPbit.lightLevel())) {
+                    pause(500)
+                }
+                servers[0].setStatusCode(jacdac.SystemStatusCodes.Ready)
+            })
+
+            return servers
+        })
     }
     start()
 }
