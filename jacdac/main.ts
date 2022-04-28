@@ -27,9 +27,7 @@ namespace servers {
 
         handlePacket(pkt: jacdac.JDPacket) {
             this.handleRegBool(pkt, jacdac.LightBulbReg.Dimmable, false)
-            const r = this.handleRegFormat(pkt, jacdac.LightBulbReg.Brightness, jacdac.LightBulbRegPack.Brightness, [this.brightness])
-            this.brightness = Math.round(r[0])
-
+            this.brightness = this.handleRegValue(pkt, jacdac.LightBulbReg.Brightness, jacdac.LightBulbRegPack.Brightness, this.brightness)
             const display = this.brightness > 0 ? Kitronik_LAMPbit.DisplayLamp.On : Kitronik_LAMPbit.DisplayLamp.Off
             Kitronik_LAMPbit.lampLightLED(display)
         }
@@ -37,22 +35,20 @@ namespace servers {
 
     function start() {
         jacdac.productIdentifier = 0x3fee6f62
+        jacdac.deviceDescription = "Kitronik LAMP:bit"
         jacdac.startSelfServers(() => {
             const servers = [
                 jacdac.createSimpleSensorServer(
                     jacdac.SRV_LIGHT_LEVEL, jacdac.LightLevelRegPack.LightLevel,
-                    () => {
-                        const v = Kitronik_LAMPbit.lightLevel()
-                        if (isNaN(v)) return undefined
-                        return v / 1023
-                    }, {
-                    statusCode: jacdac.SystemStatusCodes.Initializing
-                }),
+                    () => Kitronik_LAMPbit.lightLevel() / 1023
+                    , {
+                        statusCode: jacdac.SystemStatusCodes.Initializing
+                    }),
                 new LightBulbServer()
             ]
 
             control.inBackground(() => {
-                while(isNaN(Kitronik_LAMPbit.lightLevel())) {
+                while (isNaN(Kitronik_LAMPbit.lightLevel())) {
                     pause(500)
                 }
                 servers[0].setStatusCode(jacdac.SystemStatusCodes.Ready)

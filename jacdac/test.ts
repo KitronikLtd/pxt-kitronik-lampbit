@@ -1,9 +1,11 @@
 forever(() => {
-    console.logValue("light level", modules.kitronikLampBitLightLevel.lightLevel())
-    const on = modules.kitronikLampBitLamp.brightness()
-    if (on > 0)
+    const on = modules.kitronikLampBitLightLevel.lightLevel()
+    if (on > 50) {
+        led.plot(0,0)
         modules.kitronikLampBitLamp.setBrightness(0)
-    else 
+    }
+    else {
+        led.unplot(0, 0)
         modules.kitronikLampBitLamp.setBrightness(100)
-    pause(1000)
+    }
 })
