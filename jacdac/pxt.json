@@ -1,6 +1,6 @@
 {
     "name": "kitronik-lampbit-jacdac",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "dependencies": {
         "core": "*",
         "radio": "*",
