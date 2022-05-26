@@ -6,9 +6,9 @@
         "radio": "*",
         "microphone": "*",
         "pxt-kitronik-lampbit": "github:pelikhan/pxt-kitronik-lampbit",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.10.31",
-        "jacdac-light-level": "github:microsoft/pxt-jacdac/light-level#v0.10.31",
-        "jacdac-light-bulb": "github:microsoft/pxt-jacdac/light-bulb#v0.10.31"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.41",
+        "jacdac-light-level": "github:microsoft/pxt-jacdac/light-level#v0.10.41",
+        "jacdac-light-bulb": "github:microsoft/pxt-jacdac/light-bulb#v0.10.41"
     },
     "files": [
         "main.ts",
@@ -18,7 +18,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.1.34",
+        "target": "4.1.44",
         "targetId": "microbit"
     },
     "supportedTargets": [
